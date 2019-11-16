@@ -113,8 +113,8 @@ namespace NPBehave
         public void Start()
         {
             // Assert.AreEqual(this.currentState, State.INACTIVE, "can only start inactive nodes, tried to start: " + this.Name + "! PATH: " + GetPath());
-            Assert.AreEqual(this.currentState, State.INACTIVE, "can only start inactive nodes");
-
+//            Assert.AreEqual(this.currentState, State.INACTIVE, "can only start inactive nodes");
+            Assert.AreNotEqual(this.currentState, State.ACTIVE,"state is Active");
 #if UNITY_EDITOR
             RootNode.TotalNumStartCalls++;
             this.DebugNumStartCalls++;

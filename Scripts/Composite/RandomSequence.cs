@@ -32,7 +32,7 @@ namespace NPBehave
         {
             foreach ( Node child in Children )
             {
-                Assert.AreEqual( child.CurrentState, State.INACTIVE );
+                Assert.AreNotEqual(child.CurrentState, State.ACTIVE);
             }
 
             currentIndex = -1;
