@@ -155,7 +155,13 @@ namespace NPBehave
         protected virtual void Stopped(bool success)
         {
             // Assert.AreNotEqual(this.currentState, State.INACTIVE, "The Node " + this + " called 'Stopped' while in state INACTIVE, something is wrong! PATH: " + GetPath());
-            Assert.AreNotEqual(this.currentState, State.INACTIVE, "Called 'Stopped' while in state INACTIVE, something is wrong!");
+            //Assert.AreNotEqual(this.currentState, State.INACTIVE, "Called 'Stopped' while in state INACTIVE, something is wrong!");
+
+            if (currentState == State.INACTIVE)
+            {
+                return;
+            }
+            
             this.currentState = State.INACTIVE;
 #if UNITY_EDITOR
             RootNode.TotalNumStoppedCalls++;
