@@ -1,4 +1,6 @@
-﻿namespace NPBehave
+﻿using System;
+
+namespace NPBehave
 {
     public class Wait : Task
     {
@@ -6,7 +8,9 @@
         private string blackboardKey = null;
         private float seconds = -1f;
         private float randomVariance;
-
+        public System.Action OnStart;
+        public System.Action OnComplete;
+        public System.Action OnStop;
         public float RandomVariance
         {
             get
@@ -64,6 +68,8 @@
                 seconds = 0;
             }
 
+            OnStart?.Invoke();
+            
             if (randomVariance >= 0f)
             {
                 Clock.AddTimer(seconds, randomVariance, 0, onTimer);
@@ -78,12 +84,14 @@
         {
             Clock.RemoveTimer(onTimer);
             this.Stopped(false);
+            OnStop?.Invoke();
         }
 
         private void onTimer()
         {
             Clock.RemoveTimer(onTimer);
             this.Stopped(true);
+            OnComplete?.Invoke();
         }
     }
 }
