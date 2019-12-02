@@ -25,6 +25,8 @@ namespace NPBehave
         private System.Action action = null;
         private bool bWasBlocked = false;
 
+        public System.Action GetAction => action;
+        
         public Action(System.Action action) : base("Action")
         {
             this.action = action;
