@@ -198,8 +198,11 @@ namespace NPBehave
 
             this.isInUpdate = true;
 
-            foreach (System.Action action in updateObservers)
+            var count = updateObservers.Count;
+            
+            for (var i = 0; i < count; i++)
             {
+                System.Action action = updateObservers[i];
                 if (!removeObservers.Contains(action))
                 {
                     action.Invoke();
@@ -207,6 +210,7 @@ namespace NPBehave
             }
 
             Dictionary<System.Action, Timer>.KeyCollection keys = timers.Keys;
+            
 			foreach (System.Action callback in keys)
             {
                 if (this.removeTimers.Contains(callback))
