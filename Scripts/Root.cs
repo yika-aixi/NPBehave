@@ -9,7 +9,7 @@ namespace NPBehave
         //private Node inProgressNode;
 
         private Blackboard blackboard;
-        public override Blackboard Blackboard
+        public Blackboard Blackboard
         {
             get
             {
@@ -19,7 +19,7 @@ namespace NPBehave
 
 
         private Clock clock;
-        public override Clock Clock
+        public Clock Clock
         {
             get
             {

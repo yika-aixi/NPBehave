@@ -53,21 +53,9 @@ namespace NPBehave
             }
         }
 
-        public virtual Blackboard Blackboard
-        {
-            get
-            {
-                return RootNode.Blackboard;
-            }
-        }
+        public Blackboard Blackboard => RootNode.Blackboard;
 
-        public virtual Clock Clock
-        {
-            get
-            {
-                return RootNode.Clock;
-            }
-        }
+        public Clock Clock => RootNode.Clock;
 
         public bool IsStopRequested
         {
