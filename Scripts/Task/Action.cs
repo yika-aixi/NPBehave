@@ -140,10 +140,6 @@ namespace NPBehave
                 this.RootNode.Clock.RemoveUpdateObserver(OnUpdateFunc2);
                 this.Stopped(result == Result.SUCCESS);
             }
-            else
-            {
-                Assert.IsTrue(false, "DoStop called for a single frame action on " + this);
-            }
         }
     }
 }
